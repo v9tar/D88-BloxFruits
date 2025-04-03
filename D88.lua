@@ -1,158 +1,149 @@
 --[[
-    ██████╗ ██╗  ██╗██████╗ 
-    ██╔══██╗╚██╗██╔╝╚════██╗
-    ██║  ██║ ╚███╔╝  █████╔╝
-    ██║  ██║ ██╔██╗ ██╔═══╝ 
-    ██████╔╝██╔╝ ██╗███████╗
-    ╚═════╝ ╚═╝  ╚═╝╚══════╝
-    D88 Ultimate Suite v5.0
---]]
+   ▄████████  ▄█     █▄   ▄█        ▄█        ▄██████▄     ███        ▄█    █▄    
+  ███    ███ ███     ███ ███       ███       ███    ███ ▀█████████▄   ███    ███   
+  ███    █▀  ███     ███ ███       ███       ███    ███    ▀███▀▀██   ███    ███   
+  ███        ███     ███ ███       ███       ███    ███     ███   ▀  ▄███▄▄▄▄███▄  
+▀███████████ ███     ███ ███       ███       ███    ███     ███     ▀▀███▀▀▀▀███▀  
+         ███ ███     ███ ███       ███       ███    ███     ███       ███    ███   
+   ▄█    ███ ███ ▄█▄ ███ ███▌    ▄ ███▌    ▄ ███    ███     ███       ███    ███   
+ ▄████████▀   ▀███▀███▀  █████▄▄██ █████▄▄██  ▀██████▀     ▄████▀     ███    █▀    
+                          ▀         ▀                                            
+]]
 
-local RayField = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
-local SecureEnv = getgenv()["\68\56\56"] or {} -- حماية حقوق الملكية
-
---▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
---▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ نظام الحماية ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
---▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-
-do
-    local SecurityCore = {
-        AntiTamper = {
-            MemoryScan = true,
-            BytecodeObfuscation = true,
-            RealTimeIntegrityCheck = function()
-                return math.random(1,1000000) == SecureEnv.SecurityKey
-            end
-        },
-        Encryption = {
-            AES256 = {
-                Key = "D88-SECURE-"..game:GetService("RbxAnalyticsService"):GetClientId(),
-                Encrypt = function(data) 
-                    -- خوارزمية تشفير مخصصة
-                end
-            }
-        },
-        AntiDump = {
-            MemoryFragmentation = true,
-            FakeAPIcalls = true
-        }
-    }
-    
-    SecureEnv.SecurityKey = math.random(1,1000000)
-    setreadonly(SecurityCore, true)
-end
-
---▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
---▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ الميزات الجديدة ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
---▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-
-local UltimateFeatures = {
-    AI = {
-        NeuralNetwork = {
-            BattleStyleRecognition = true,
-            PredictiveAnalysis = function(target)
-                return {
-                    NextMove = "SkillZ",
-                    Probability = 0.87
-                }
-            end
-        }
+local _G = getgenv() or {}
+_G.D88 = {
+    Version = "7.0",
+    DeviceDetection = {
+        ["iOS"] = false,
+        ["Android"] = false,
+        ["PC"] = false,
+        ["Console"] = false
     },
-    RealitySystems = {
-        AR = {
-            HolographicRadar = true,
-            TacticalOverlay = true
-        },
-        VR = {
-            MotionTracking = true,
-            HapticFeedback = true
-        }
-    },
-    VoiceControl = {
-        ArabicSupport = true,
-        VoiceToCommand = function(audio)
-            -- نظام تحويل الصوت إلى أوامر
-        end
+    Language = "Auto",
+    SeaSpecific = {
+        ["Sea1"] = {},
+        ["Sea2"] = {},
+        ["Sea3"] = {}
     }
 }
 
---▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
---▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ الواجهة الذكية ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
---▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+-- نظام كشف الجهاز التلقائي
+local function DetectDevice()
+    local UserInputService = game:GetService("UserInputService")
+    if UserInputService.TouchEnabled then
+        if UserInputService.KeyboardEnabled then
+            _G.D88.DeviceDetection["iOS"] = true
+        else
+            _G.D88.DeviceDetection["Android"] = true
+        end
+    else
+        _G.D88.DeviceDetection["PC"] = true
+    end
+end
 
-local Window = RayField:CreateWindow({
-    Name = "D88 Ultimate Suite",
-    LoadingTitle = "جاري تحميل النظام الذكي...",
-    LoadingSubtitle = "محمي بموجب حقوق D88 © 2024",
-    KeySystem = true, -- نظام مفاتيح مدمج
-    KeySettings = {
-        Title = "نظام المصادقة",
-        Subtitle = "أدخل مفتاح التفعيل",
-        Note = "تواصل مع المطور للحصول على المفتاح",
-        Key = SecureEnv.SecurityKey,
-        SaveKey = false
+-- نظام اللغات المتعدد
+local Languages = {
+    ["English"] = {
+        ["Farm"] = "Auto Farm",
+        ["Boss"] = "Boss Hunter"
+    },
+    ["Arabic"] = {
+        ["Farm"] = "فارم تلقائي",
+        ["Boss"] = "صيد البوسات"
+    },
+    ["French"] = {
+        ["Farm"] = "Farm Automatique",
+        ["Boss"] = "Chasseur de Boss"
+    }
+}
+
+-- نظام تحميل العالم التلقائي
+local function LoadSeaSpecific()
+    local Sea = game:GetService("Players").LocalPlayer.Data.Sea.Value
+    if Sea == 1 then
+        _G.D88.SeaSpecific.Sea1 = {
+            Swords = {"Katana", "Cutlass"},
+            Bosses = {"The Gorilla King", "Bobby"}
+        }
+    elseif Sea == 2 then
+        _G.D88.SeaSpecific.Sea2 = {
+            Swords = {"Saber", "Pole"},
+            Bosses = {"The Saw", "Order"}
+        }
+    elseif Sea == 3 then
+        _G.D88.SeaSpecific.Sea3 = {
+            Swords = {"Zweihander", "Dragon Trident"},
+            Bosses = ["Dragon King", "Cake Queen"]
+        }
+    end
+end
+
+-- الواجهة الرئيسية (بدون شروحات داخلية)
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
+local Window = Rayfield:CreateWindow({
+    Name = "D88 Ultimate",
+    LoadingTitle = "Initializing...",
+    LoadingSubtitle = "Loading premium features",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = "D88Config",
+        FileName = "D88Settings"
+    },
+    Discord = {
+        Enabled = true,
+        Invite = "discord.gg/d88",
+        RememberJoins = true
     }
 })
 
---▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ التحسينات ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
--- 1. نظام إخفاء القوائم الذكي
-local MenuVisible = true
-game:GetService("UserInputService").InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.RightControl then
-        MenuVisible = not MenuVisible
-        RayField:ToggleUI(MenuVisible)
+-- تبويب الفارم
+local FarmTab = Window:CreateTab("Farming", "rbxassetid://4483362458")
+local FarmSection = FarmTab:CreateSection("Auto Farm Settings")
+
+FarmSection:AddToggle("Auto Farm", {
+    CurrentValue = false,
+    Callback = function(Value)
+        _G.D88.AutoFarm = Value
+    end
+})
+
+-- تبويب البوسات
+local BossTab = Window:CreateTab("Bosses", "rbxassetid://4483362458")
+local BossSection = BossTab:CreateSection("Boss Hunter")
+
+BossSection:AddDropdown("Select Boss", {
+    Values = _G.D88.SeaSpecific["Sea"..game:GetService("Players").LocalPlayer.Data.Sea.Value].Bosses,
+    CurrentOption = "Select",
+    Callback = function(Value)
+        _G.D88.SelectedBoss = Value
+    end
+})
+
+-- نظام التنفيذ
+DetectDevice()
+LoadSeaSpecific()
+
+-- تحسينات الأداء
+if _G.D88.DeviceDetection["Android"] or _G.D88.DeviceDetection["iOS"] then
+    setfpscap(60)
+    game:GetService("RunService"):Set3dRenderingEnabled(false)
+else
+    setfpscap(240)
+end
+
+-- التحديث التلقائي
+task.spawn(function()
+    while task.wait(300) do
+        pcall(function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/v9tar/D88-BloxFruits/main/VersionCheck.lua"))()
+        end)
     end
 end)
 
--- 2. تحسينات الأداء الثورية
-local PerformanceBoost = {
-    MemoryOptimizer = {
-        GarbageCollection = {
-            AutoCollect = true,
-            Interval = 60
-        }
-    },
-    RenderPipeline = {
-        DynamicLOD = true,
-        OcclusionCulling = true
-    }
+-- حقوق الملكية
+_G.D88.Copyright = {
+    Owner = "D88 Technologies",
+    Year = 2024,
+    License = "Premium",
+    Protection = "SecureBoot"
 }
-
--- 3. نظام الحقوق الرقمية
-local CopyrightSystem = {
-    Watermark = {
-        Text = "Powered by D88 Technologies ©",
-        Position = Vector2.new(0.5, 0.95),
-        Style = {
-            Font = "Ubuntu",
-            Size = 18,
-            Color = Color3.fromRGB(255, 85, 0)
-        }
-    },
-    LegalProtection = {
-        AutoDMCA = true,
-        LicenseVerification = true
-    }
-}
-
---▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
---▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ التنفيذ النهائي ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
---▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-
--- 1. تنشيط جميع الميزات
-for system, config in pairs(UltimateFeatures) do
-    if type(config) == "table" then
-        for feature, state in pairs(config) do
-            if state == true then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/v9tar/D88-BloxFruits/main/Modules/"..system.."/"..feature..".lua"))()
-            end
-        end
-    end
-end
-
--- 2. تفعيل التحسينات
-setfpscap(1000)
-collectgarbage("restart")
-
--- 3. الرسالة الختامية
-RayField:Notify("مرحبا!", "D88 Ultimate يعمل الآن بأقص
